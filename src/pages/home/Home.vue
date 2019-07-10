@@ -1,18 +1,20 @@
 <template>
   <div>
-    <div class="home">welcome to home!</div>
+    <home-header></home-header>
   </div>
 </template>
 
 <script>
+import HomeHeader from './components/HomeHeader'
 export default {
+  name: 'Home',
+  components: {
+    HomeHeader
+  },
   data () {
     return {
 
     }
-  },
-  components: {
-
   }
 }
 </script>
