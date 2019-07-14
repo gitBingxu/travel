@@ -19,7 +19,9 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
-        loop: true
+        loop: true,
+        autoplay: 4000,
+        autoplayDisableOnInteraction: false
       },
       swiperList: [{
         id: 0,
@@ -37,8 +39,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .swiper-wrap /deep/ .swiper-pagination-bullet-active {
+  /deep/ .swiper-pagination-bullets {
+    bottom: 6px;
+    .swiper-pagination-bullet {
+      width: 6px;
+      height: 6px;
+    }
+    .swiper-pagination-bullet-active {
     background: #fff;
+  }
   }
   .swiper-wrap {
     overflow: hidden;
