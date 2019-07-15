@@ -33,9 +33,12 @@ export default {
     line-height: 1rem;
     text-align: center;
     background: #ffffff;
+    margin-top: 1px;
     .location-left {
       width: 50%;
       height: 100%;
+      box-sizing: border-box;
+      border-right: 1px solid #e5e5e5;
     }
     .location-right {
       width: 50%;

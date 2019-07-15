@@ -4,6 +4,7 @@
     <home-swiper></home-swiper>
     <home-icons></home-icons>
     <home-location></home-location>
+    <home-recommand></home-recommand>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import HomeHeader from './components/HomeHeader'
 import HomeSwiper from './components/HomeSwiper'
 import HomeIcons from './components/HomeIcon'
 import HomeLocation from './components/HomeLocation'
+import HomeRecommand from './components/HomeRecommand'
 
 export default {
   name: 'Home',
@@ -19,7 +21,8 @@ export default {
     HomeHeader,
     HomeSwiper,
     HomeIcons,
-    HomeLocation
+    HomeLocation,
+    HomeRecommand
   },
   data () {
     return {
@@ -34,6 +37,6 @@ export default {
     font-size: .28rem;
     padding: 0;
     margin: 0;
-    background: #ccc;
+    background: #e5e5e5;
   }
 </style>
