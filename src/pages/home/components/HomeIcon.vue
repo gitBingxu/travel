@@ -94,7 +94,8 @@ export default {
     height: 6px;
   }
   .icons-wrap {
-    margin-top: .2rem;
+    padding-top: .2rem;
+    background: #fff;
     .icon-item {
       position: relative;
       overflow: hidden;

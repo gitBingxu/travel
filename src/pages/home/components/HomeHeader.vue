@@ -9,7 +9,7 @@
     </div>
     <div class="header-right">
       <span>地址</span>
-      <span class="iconfont arrow-icon">&#xe64a;</span>
+      <span class="iconfont arrow-icon">&#xe600;</span>
     </div>
   </div>
 </template>
@@ -60,7 +60,7 @@ export default {
       text-align: center;
       text-align: center;
       .arrow-icon {
-        font-size: .24rem;
+        font-size: .32rem;
         margin-left: -.05rem;
       }
     }
