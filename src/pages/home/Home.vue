@@ -5,6 +5,7 @@
     <home-icons></home-icons>
     <home-location></home-location>
     <home-recommand></home-recommand>
+    <favorite></favorite>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import HomeSwiper from './components/HomeSwiper'
 import HomeIcons from './components/HomeIcon'
 import HomeLocation from './components/HomeLocation'
 import HomeRecommand from './components/HomeRecommand'
+import Favorite from './components/HomeFavorite'
 
 export default {
   name: 'Home',
@@ -22,7 +24,8 @@ export default {
     HomeSwiper,
     HomeIcons,
     HomeLocation,
-    HomeRecommand
+    HomeRecommand,
+    Favorite
   },
   data () {
     return {

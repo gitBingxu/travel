@@ -8,7 +8,7 @@
       <input class="header-input" placeholder="输入城市/景点/游玩主题">
     </div>
     <div class="header-right">
-      <span>地址</span>
+      <span>北京</span>
       <span class="iconfont arrow-icon">&#xe600;</span>
     </div>
   </div>

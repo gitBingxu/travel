@@ -70,7 +70,7 @@ export default {
     padding-bottom: 48%;
     margin-top: .2rem;
     background: #fff;
-    padding-left: 12px;
+    padding-left: .24rem;
     .title {
       position: relative;
       height: 40px;
@@ -83,7 +83,7 @@ export default {
       }
       .title-hotrec {
         font-size: 16px;
-        margin-left: 2px;
+        margin-left: 4px;
       }
       .title-allrec {
         position: absolute;
