@@ -67,7 +67,7 @@ export default {
 <style lang="scss" scoped>
   .recommand-wrap {
     height: 0;
-    padding-bottom: 48%;
+    padding-bottom: 49%;
     margin-top: .2rem;
     background: #fff;
     padding-left: .24rem;
@@ -95,12 +95,11 @@ export default {
     }
     .cont {
       list-style: none;
-      display: flex;
-      flex: row;
       overflow-x: scroll;
       white-space: nowrap;
       font-size: 12px;
       text-align: center;
+      padding-right: .24rem;
       .cont-item {
         position: relative;
         display: inline-block;
@@ -113,7 +112,6 @@ export default {
           height: 0;
           padding-bottom: 100%;
           .img {
-            margin: 0 auto;
             width: 100%;
           }
         }

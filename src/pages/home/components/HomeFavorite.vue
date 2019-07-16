@@ -12,7 +12,8 @@
         <div class="item-right">
           <div class="title">{{item.text}}</div>
           <div class="comments">
-            <span class="star"></span>
+            <img class="star" src="@/assets/image/star.png">
+            <img class="star" src="@/assets/image/star.png">
             <span class="comment">{{item.comments}}条评论</span>
           </div>
           <div class="price">
@@ -144,8 +145,14 @@ export default {
             line-height: .44rem;
           }
           .comments {
+            position: relative;
             margin-top: .14rem;
             height: .34rem;
+            .star {
+              margin-top: -6px;
+              width: 14px;
+              height: 14px;
+            }
             .comment {
               color: #616161;
               font-size: .24rem;

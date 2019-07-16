@@ -35,7 +35,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import 'styles/style.scss';
   .home {
     font-size: .28rem;
     padding: 0;
