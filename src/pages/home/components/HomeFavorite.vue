@@ -22,7 +22,7 @@
             <span class="text">起</span>
             <span class="location">{{item.location}}</span>
           </div>
-          <div class="tag" v-if="item.tag">{{item.tag}}</div>
+          <span class="tag" v-if="item.tag">{{item.tag}}</span>
         </div>
       </li>
     </ul>
@@ -114,7 +114,7 @@ export default {
     .fav-cont {
       position: relative;
       overflow: hidden;
-      padding: .2rem 0;
+      padding-top: .2rem;
       .cont-item {
         display: flex;
         flex-direction: row;
@@ -150,10 +150,12 @@ export default {
             height: .34rem;
             .star {
               margin-top: -6px;
+              margin-right: -3px;
               width: 14px;
               height: 14px;
             }
             .comment {
+              margin-left: 4px;
               color: #616161;
               font-size: .24rem;
               line-height: .34rem;
@@ -183,14 +185,12 @@ export default {
             }
           }
           .tag {
+            display: inline-block;
+            padding: 0 2px;
             color: #f55;
+            background: rgba(#FF0000, 0.05);
             font-size: .24rem;
-            line-height: .34rem;
-            display: -webkit-box;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+            line-height: .35rem;
             margin-top: .48rem;
           }
         }

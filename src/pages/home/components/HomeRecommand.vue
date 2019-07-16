@@ -67,7 +67,7 @@ export default {
 <style lang="scss" scoped>
   .recommand-wrap {
     height: 0;
-    padding-bottom: 49%;
+    padding-bottom: 50%;
     margin-top: .2rem;
     background: #fff;
     padding-left: .24rem;

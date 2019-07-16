@@ -6,6 +6,7 @@
     <home-location></home-location>
     <home-recommand></home-recommand>
     <favorite></favorite>
+    <div class="view-all">查看所有产品</div>
   </div>
 </template>
 
@@ -42,5 +43,16 @@ export default {
     padding: 0;
     margin: 0;
     background: #e5e5e5;
+    .view-all {
+      border-top: 1px solid #e5e5e5;
+      display: block;
+      padding: .2rem 0;
+      margin-top: -1px;
+      background: $bgcolor;
+      color: #00afc7;
+      font-size: .28rem;
+      line-height: .4rem;
+      text-align: center;
+    }
   }
 </style>
