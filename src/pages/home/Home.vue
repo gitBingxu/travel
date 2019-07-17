@@ -8,6 +8,12 @@
     <favorite></favorite>
     <div class="view-all">查看所有产品</div>
     <weekend-go></weekend-go>
+    <div class="tic-price">
+      <img class="price-icon" src="@/assets/image/detail.png" />
+      <strong class="text-left">票面价</strong>
+      <span class="text-right">是指通过景区指定窗口售卖的纸质门票上标注的价格</span>
+    </div>
+    <home-login></home-login>
   </div>
 </template>
 
@@ -19,6 +25,7 @@ import HomeLocation from './components/HomeLocation'
 import HomeRecommand from './components/HomeRecommand'
 import Favorite from './components/HomeFavorite'
 import WeekendGo from './components/WeekendGo'
+import HomeLogin from './components/Homelogin'
 
 export default {
   name: 'Home',
@@ -29,7 +36,8 @@ export default {
     HomeLocation,
     HomeRecommand,
     Favorite,
-    WeekendGo
+    WeekendGo,
+    HomeLogin
   },
   data () {
     return {
@@ -56,6 +64,25 @@ export default {
       font-size: .28rem;
       line-height: .4rem;
       text-align: center;
+    }
+    .tic-price {
+      background: #fff;
+      height: .6rem;
+      padding: .14rem .1rem;
+      font-size: .24rem;
+      line-height: .32rem;
+      color: #616161;
+      margin-top: .2rem;
+      box-sizing: border-box;
+      .price-icon {
+        width: .24rem;
+        height: .24rem;
+        margin-top: -.06rem;
+      }
+      .text-left {
+        color: black;
+        margin-right: -.06rem;
+      }
     }
   }
 </style>
