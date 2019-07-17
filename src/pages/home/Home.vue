@@ -7,6 +7,7 @@
     <home-recommand></home-recommand>
     <favorite></favorite>
     <div class="view-all">查看所有产品</div>
+    <weekend-go></weekend-go>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import HomeIcons from './components/HomeIcon'
 import HomeLocation from './components/HomeLocation'
 import HomeRecommand from './components/HomeRecommand'
 import Favorite from './components/HomeFavorite'
+import WeekendGo from './components/WeekendGo'
 
 export default {
   name: 'Home',
@@ -26,7 +28,8 @@ export default {
     HomeIcons,
     HomeLocation,
     HomeRecommand,
-    Favorite
+    Favorite,
+    WeekendGo
   },
   data () {
     return {
