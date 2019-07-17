@@ -46,8 +46,8 @@ export default {
       height: 6px;
     }
     .swiper-pagination-bullet-active {
-    background: #fff;
-  }
+      background: #fff;
+    }
   }
   .swiper-wrap {
     overflow: hidden;

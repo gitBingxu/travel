@@ -186,7 +186,7 @@ export default {
           }
           .tag {
             display: inline-block;
-            padding: 0 2px;
+            padding: 0 5px;
             color: #f55;
             background: rgba(#FF0000, 0.05);
             font-size: .24rem;
