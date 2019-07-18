@@ -5,7 +5,7 @@
     </div>
     <div class="header-mid">
       <span class="iconfont header-search">&#xe632;</span>
-      <input class="header-input" placeholder="输入城市/景点/游玩主题">
+      <input class="header-input" placeholder="输入城市/景点/游玩主题" @click="handleClick">
     </div>
     <div class="header-right">
       <span>北京</span>
@@ -20,6 +20,11 @@ export default {
   data () {
     return {
 
+    }
+  },
+  methods: {
+    handleClick () {
+      this.$router.push('/search')
     }
   }
 }
