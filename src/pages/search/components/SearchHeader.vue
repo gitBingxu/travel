@@ -28,6 +28,12 @@ export default {
         this.search = ''
       }
     }
+  },
+  mounted () {
+    const that = this
+    this.bus.$on('search', function (item) {
+      that.search = item
+    })
   }
 }
 </script>

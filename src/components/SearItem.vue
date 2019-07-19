@@ -4,7 +4,7 @@
       <img class="left-img" :src="optionsList.img">
     </div>
     <ul class="sear-right">
-      <li class="right-item" v-for="item of optionsList.sightList" :key="item.id">{{item.cont}}</li>
+      <li class="right-item" @click="handelClick(item.cont)" v-for="item of optionsList.sightList" :key="item.id">{{item.cont}}</li>
     </ul>
   </div>
 </template>
@@ -30,6 +30,11 @@ export default {
   data () {
     return {
 
+    }
+  },
+  methods: {
+    handelClick (item) {
+      this.bus.$emit('search', item)
     }
   }
 }
