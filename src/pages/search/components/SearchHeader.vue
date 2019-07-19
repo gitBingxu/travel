@@ -4,9 +4,9 @@
       <span class="iconfont back">&#xe624;</span>
     </div>
     <div class="mid">
-      <input class="input" type="text" placeholder="输入城市或景点">
+      <input class="input" type="text" placeholder="输入城市或景点" v-model="search">
     </div>
-    <div class="right">搜索</div>
+    <div class="right" @click="handelClick">搜索</div>
   </div>
 </template>
 
@@ -18,7 +18,15 @@ export default {
   },
   data () {
     return {
-
+      search: ''
+    }
+  },
+  methods: {
+    handelClick () {
+      if (this.search) {
+        this.$emit('search', this.search)
+        this.search = ''
+      }
     }
   }
 }
