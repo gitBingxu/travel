@@ -26,6 +26,7 @@ import HomeRecommand from './components/HomeRecommand'
 import Favorite from './components/HomeFavorite'
 import WeekendGo from './components/WeekendGo'
 import HomeLogin from './components/Homelogin'
+import axios from 'axios'
 
 export default {
   name: 'Home',
@@ -43,6 +44,17 @@ export default {
     return {
 
     }
+  },
+  methods: {
+    getHomeInfo () {
+      axios.get('/api/index.json').then(this.getInfoSucc)
+    },
+    getInfoSucc (res) {
+      console.log(res)
+    }
+  },
+  mounted () {
+    this.getHomeInfo()
   }
 }
 </script>
