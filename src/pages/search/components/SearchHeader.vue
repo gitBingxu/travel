@@ -1,7 +1,7 @@
 <template>
   <div class="header-wrap">
     <div class="left">
-      <span class="iconfont back">&#xe624;</span>
+      <span @click="back" class="iconfont back">&#xe624;</span>
     </div>
     <div class="mid">
       <input class="input" type="text" placeholder="输入城市或景点" v-model="search">
@@ -27,11 +27,14 @@ export default {
         this.$emit('search', this.search)
         this.search = ''
       }
+    },
+    back () {
+      this.$router.push('/')
     }
   },
   mounted () {
     const that = this
-    this.bus.$on('search', function (item) {
+    this.bus.$on('hotSearch', function (item) {
       that.search = item
     })
   }

@@ -51,9 +51,11 @@ export default {
       overflow-y: hidden;
       display: flex;
       flex-direction: row;
-      overflow-y: scroll;
+      overflow-x: scroll;
       align-items: center;
       .item {
+        text-overflow: ellipsis;
+        white-space: nowrap;
         height: .64rem;
         padding: 0 .15rem;
         font-size: .28rem;

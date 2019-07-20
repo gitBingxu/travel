@@ -25,12 +25,12 @@ export default {
   },
   methods: {
     handelSearch (item) {
-      if (item) {
-        const list = this.hitoryList
-        if (list.length >= 4) {
+      const list = this.hitoryList
+      if (!list.length || list.indexOf(item) < 0) {
+        if (list.length >= 3) {
           list.shift()
         }
-        this.hitoryList.push(item)
+        list.push(item)
       }
     },
     handelClear () {

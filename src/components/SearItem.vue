@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     handelClick (item) {
-      this.bus.$emit('search', item)
+      this.bus.$emit('hotSearch', item)
     }
   }
 }
