@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/home/Home'
 import Search from '@/pages/search/Search'
+import SelectCity from '@/pages/select/SelectCity'
 
 Vue.use(Router)
 
@@ -15,6 +16,10 @@ export default new Router({
       path: '/search',
       name: 'Search',
       component: Search
+    }, {
+      path: '/select',
+      name: 'SelectCity',
+      component: SelectCity
     }
   ]
 })

@@ -5,7 +5,8 @@
       <span class="title">城市选择</span>
     </div>
     <ul class="tab">
-      <li @click="toDetailCity" :class="{active: isActive === item.id}" v-for="item of menuList" :key="item.id">{{item.cont}}</li>
+      <li @click="toTerritory" :class="{active : !menuId}" id="0">境内</li>
+      <li @click="toTerritory" :class="{active : menuId}" id="1">境外·港澳台</li>
     </ul>
   </div>
 </template>
@@ -18,23 +19,16 @@ export default {
   },
   data () {
     return {
-      isActive: 1,
-      menuList: [{
-        id: 0,
-        cont: '境内'
-      }, {
-        id: 1,
-        cont: '境外·港澳台'
-      }]
+      menuId: 0
     }
   },
   methods: {
     back () {
       this.$router.push('/')
+    },
+    toTerritory (e) {
+      this.menuId = parseInt(e.target.id)
     }
-    // toDetailCity (e) {
-
-    // }
   }
 }
 </script>
@@ -67,15 +61,15 @@ export default {
       height: .4rem;
       box-sizing: content-box;
       list-style: none;
+      border: 1px solid #e5e5e5;
+      border-radius: 2px;
       li {
         float: left;
         width: 50%;
         text-align: center;
         font-size: .28rem;
         line-height: .4rem;
-        border: 1px solid #e5e5e5;
         box-sizing: border-box;
-        border-radius: 2px;
       }
       .active {
         background: #fff;

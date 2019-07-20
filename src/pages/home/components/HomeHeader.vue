@@ -7,7 +7,7 @@
       <span class="iconfont header-search">&#xe632;</span>
       <input class="header-input" placeholder="输入城市/景点/游玩主题" @click="handleClick">
     </div>
-    <div class="header-right">
+    <div @click="toSelect" class="header-right">
       <span>北京</span>
       <span class="iconfont arrow-icon">&#xe600;</span>
     </div>
@@ -25,6 +25,9 @@ export default {
   methods: {
     handleClick () {
       this.$router.push('/search')
+    },
+    toSelect () {
+      this.$router.push('/select')
     }
   }
 }
