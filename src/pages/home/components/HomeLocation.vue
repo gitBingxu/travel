@@ -6,7 +6,9 @@
     </div>
     <div class="location-right">
       <span class="iconfont earth">&#xe61a;</span>
-      <span>必游榜单</span>
+      <span>
+        <a href="https://sale.piao.qunar.com/touch/topic/mk/t_2916.htm?cat=from_area%3Dts_tuiguang">必游榜单</a>
+      </span>
     </div>
   </div>
 </template>
@@ -43,6 +45,10 @@ export default {
     .location-right {
       width: 50%;
       height: 100%;
+      a {
+        text-decoration: none;
+        color: #333333;
+      }
     }
   }
 </style>

@@ -2,7 +2,7 @@
   <div class="swiper-wrap">
     <swiper :options="swiperOption" ref="mySwiper">
       <swiper-slide v-for="item of swiperList" :key="item.id">
-        <img class="swiper-img" :src="item.url">
+        <img class="swiper-img" :src="item.imgUrl">
       </swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
@@ -12,6 +12,12 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    swiperList: {
+      type: Array,
+      required: true
+    }
+  },
   components: {
 
   },
@@ -22,17 +28,7 @@ export default {
         loop: true,
         autoplay: 4000,
         autoplayDisableOnInteraction: false
-      },
-      swiperList: [{
-        id: 0,
-        url: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20196/818f6cc784ae6669b74bbbb255414a53.jpg_750x200_66ca5873.jpg'
-      }, {
-        id: 1,
-        url: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/a4c27b0a5fc1d9e9e620225869089b12.jpg_750x200_e4720428.jpg'
-      }, {
-        id: 2,
-        url: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/d7bbc21db442366a882e04ddc984669a.jpg_750x200_85e640d9.jpg'
-      }]
+      }
     }
   }
 }

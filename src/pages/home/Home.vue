@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <home-header></home-header>
-    <home-swiper></home-swiper>
-    <home-icons></home-icons>
+    <home-swiper :swiperList="swiperList"></home-swiper>
+    <home-icons :iconsList="iconList"></home-icons>
     <home-location></home-location>
-    <home-recommand></home-recommand>
-    <favorite></favorite>
+    <home-recommand :recommendList="recommendList"></home-recommand>
+    <favorite :favList="favList"></favorite>
     <div class="view-all">查看所有产品</div>
     <weekend-go></weekend-go>
     <div class="tic-price">
@@ -42,7 +42,10 @@ export default {
   },
   data () {
     return {
-
+      swiperList: [],
+      iconList: [],
+      recommendList: [],
+      favList: []
     }
   },
   methods: {
@@ -50,7 +53,13 @@ export default {
       axios.get('/api/index.json').then(this.getInfoSucc)
     },
     getInfoSucc (res) {
-      console.log(res)
+      const {code, data} = res.data
+      if (code) {
+        this.swiperList = data.swiperList
+        this.iconList = data.iconList
+        this.recommendList = data.recommendList
+        this.favList = data.favList
+      }
     }
   },
   mounted () {

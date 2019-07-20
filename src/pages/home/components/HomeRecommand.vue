@@ -6,7 +6,7 @@
       <span class="title-allrec">全部榜单</span>
     </div>
     <ul class="cont">
-      <li class="cont-item" v-for="item of recommandList" :key="item.id">
+      <li class="cont-item" v-for="item of recommendList" :key="item.id">
         <div class="cont-img">
           <img class="img" :src="item.url" :alt="item.text">
         </div>
@@ -23,42 +23,18 @@
 <script>
 export default {
   name: 'HomeRecommand',
+  props: {
+    recommendList: {
+      type: Array,
+      required: true
+    }
+  },
   components: {
 
   },
   data () {
     return {
-      recommandList: [{
-        id: 0,
-        url: 'https://imgs.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_250x250_0fc722c0.jpg',
-        text: '故宫',
-        price: 60
-      }, {
-        id: 1,
-        url: 'https://imgs.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_250x250_50c99cf3.jpg',
-        text: '八达岭长城',
-        price: 40
-      }, {
-        id: 2,
-        url: 'https://imgs.qunarzz.com/sight/p0/1505/d2/d274c92de14c93da.water.jpg_250x250_d852635b.jpg',
-        text: '颐和园',
-        price: 30
-      }, {
-        id: 3,
-        url: 'https://imgs.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_250x250_63e3520a.jpg',
-        text: '圆明园',
-        price: 25
-      }, {
-        id: 4,
-        url: 'https://imgs.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_250x250_3588bc9a.jpg',
-        text: '世界园艺',
-        price: 108
-      }, {
-        id: 5,
-        url: 'https://imgs.qunarzz.com/sight/p0/1603/85/85c883189bf7293390.water.jpg_250x250_090a42b6.jpg',
-        text: '什刹海',
-        price: 10
-      }]
+
     }
   }
 }

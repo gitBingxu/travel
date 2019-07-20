@@ -4,9 +4,9 @@
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon-item" v-for="item of page" :key="item.id">
           <div class="icon-img">
-            <img :src="item.url" class="img"/>
+            <img :src="item.imgUrl" class="img"/>
           </div>
-          <p class="icon-text">{{item.content}}</p>
+          <p class="icon-text">{{item.desc}}</p>
         </div>
       </swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
@@ -17,6 +17,12 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconsList: {
+      type: Array,
+      required: true
+    }
+  },
   components: {
 
   },
@@ -24,44 +30,7 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination'
-      },
-      iconsList: [{
-        id: 0,
-        url: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        content: '景点门票'
-      }, {
-        id: 1,
-        url: 'https://imgs.qunarzz.com/piao/fusion/1803/6c/9e54a8540fee0102.png',
-        content: '故宫'
-      }, {
-        id: 2,
-        url: 'https://imgs.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        content: '北京必游'
-      }, {
-        id: 3,
-        url: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
-        content: '水上乐园'
-      }, {
-        id: 4,
-        url: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        content: '爬长城'
-      }, {
-        id: 5,
-        url: 'https://imgs.qunarzz.com/piao/fusion/1803/6c/9e54a8540fee0102.png',
-        content: '北京欢乐谷'
-      }, {
-        id: 6,
-        url: 'https://imgs.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        content: '动植物园'
-      }, {
-        id: 7,
-        url: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
-        content: '野生动物园'
-      }, {
-        id: 8,
-        url: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/b4511345827006994aa1980a3886f0ac.png',
-        content: '考生专项'
-      }]
+      }
     }
   },
   computed: {
