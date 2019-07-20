@@ -4,7 +4,7 @@
       <span @click="back" class="iconfont back">&#xe624;</span>
     </div>
     <div class="mid">
-      <input class="input" type="text" placeholder="输入城市或景点" v-model="search">
+      <input class="input" type="text" placeholder="输入城市或景点" v-model="search" ref="input">
     </div>
     <div class="right" @click="handelClick">搜索</div>
   </div>
@@ -27,6 +27,7 @@ export default {
         this.$emit('search', this.search)
         this.search = ''
       }
+      this.bus.$emit('show')
     },
     back () {
       this.$router.push('/')
@@ -37,6 +38,13 @@ export default {
     this.bus.$on('hotSearch', function (item) {
       that.search = item
     })
+  },
+  watch: {
+    search: function () {
+      if (this.search) {
+        this.bus.$emit('hide')
+      }
+    }
   }
 }
 </script>

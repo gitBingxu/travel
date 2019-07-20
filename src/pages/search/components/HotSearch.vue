@@ -1,8 +1,11 @@
 <template>
-  <div>
+  <div class="hot-wrap">
     <sheader :optionsList="oplist"></sheader>
     <sear-item :optionsList="topHotList"></sear-item>
     <sear-item :optionsList="bottomList" class="bottom-search"></sear-item>
+    <div class="hot-footer">
+      <div class="footer-cont">搜索身边的景点</div>
+    </div>
   </div>
 </template>
 
@@ -24,7 +27,7 @@ export default {
         iconText: '换一换'
       },
       topHotList: {
-        img: './static/img/sights.png',
+        img: 'https://imgs.qunarzz.com/piao/fusion/1511/da/8c3405b0e7d493f7.png',
         sightList: [{
           id: 0,
           cont: '八达岭长城'
@@ -46,7 +49,7 @@ export default {
         }]
       },
       bottomList: {
-        img: './static/img/hotel.png',
+        img: 'https://imgs.qunarzz.com/piao/fusion/1511/e8/d46972e07444bbf7.png',
         sightList: [{
           id: 0,
           cont: '绍兴'
@@ -75,6 +78,19 @@ export default {
           padding: 0 .44rem;
         }
       }
+    }
+  }
+  .hot-footer {
+    background: #fff;
+    height: 1.16rem;
+    padding: .2rem .2rem ;
+    color: #212121;
+    box-sizing: border-box;
+    .footer-cont {
+      line-height: 38px;
+      text-align: center;
+      font-size: .26rem;
+      border: 1px solid #e5e5e5;
     }
   }
 </style>

@@ -1,8 +1,10 @@
 <template>
   <div class="search-wrap">
     <search-header @search="handelSearch"></search-header>
-    <search-history :historyList="hitoryList" @clear="handelClear"></search-history>
-    <hot-search></hot-search>
+    <div v-show="ifshow">
+      <search-history :historyList="hitoryList" @clear="handelClear"></search-history>
+      <hot-search></hot-search>
+    </div>
   </div>
 </template>
 
@@ -20,7 +22,8 @@ export default {
   },
   data () {
     return {
-      hitoryList: []
+      hitoryList: [],
+      ifshow: true
     }
   },
   methods: {
@@ -36,6 +39,14 @@ export default {
     handelClear () {
       this.hitoryList = []
     }
+  },
+  mounted () {
+    this.bus.$on('hide', () => {
+      this.ifshow = false
+    })
+    this.bus.$on('show', () => {
+      this.ifshow = true
+    })
   }
 }
 </script>
