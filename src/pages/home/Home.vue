@@ -7,7 +7,7 @@
     <home-recommand :recommendList="recommendList"></home-recommand>
     <favorite :favList="favList"></favorite>
     <div class="view-all">查看所有产品</div>
-    <weekend-go></weekend-go>
+    <weekend-go :weekendList="weekendList"></weekend-go>
     <div class="tic-price">
       <img class="price-icon" src="@/assets/image/detail.png" />
       <strong class="text-left">票面价</strong>
@@ -45,7 +45,8 @@ export default {
       swiperList: [],
       iconList: [],
       recommendList: [],
-      favList: []
+      favList: [],
+      weekendList: []
     }
   },
   methods: {
@@ -59,6 +60,7 @@ export default {
         this.iconList = data.iconList
         this.recommendList = data.recommendList
         this.favList = data.favList
+        this.weekendList = data.weekendList
       }
     }
   },
