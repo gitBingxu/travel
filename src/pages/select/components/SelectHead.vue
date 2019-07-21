@@ -1,6 +1,6 @@
 <template>
   <div class="select-wrap">
-    <div class="head">
+    <div class="head border-bottom">
       <span @click="back" class="iconfont back">&#xe624;</span>
       <span class="title">城市选择</span>
     </div>
@@ -43,7 +43,6 @@ export default {
       position: relative;
       height: .7rem;
       text-align: center;
-      border-bottom: 1px solid #fff;
       .back {
         font-size: .36rem;
         position: absolute;
@@ -53,7 +52,7 @@ export default {
       .title {
         display: inline-block;
         font-size: .32rem;
-        margin-top: .3rem;
+        margin-top: .28rem;
       }
     }
     .tab {
