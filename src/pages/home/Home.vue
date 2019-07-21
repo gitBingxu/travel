@@ -72,6 +72,7 @@ export default {
       const {code, data} = res.data
       if (code) {
         const list = data.cities
+        const HotList = data.hotCities
         let index = Object.keys(list)
         index.forEach((item) => {
           let obj = {}
@@ -79,6 +80,7 @@ export default {
           obj.city = list[item]
           store.commit('addToCityList', obj)
         })
+        store.commit('addTohotCityList', HotList)
       }
     }
   },

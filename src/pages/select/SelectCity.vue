@@ -12,6 +12,8 @@ import SelectHead from './components/SelectHead'
 import HotCity from './components/HotCity'
 import AlphaTab from './components/AlphaTab'
 import AllCity from './components/AllCity'
+import store from '@/store/store'
+import axios from 'axios'
 
 export default {
   name: 'SelectCity',
@@ -19,12 +21,28 @@ export default {
     SelectHead,
     HotCity,
     AlphaTab,
-    AllCity
+    AllCity,
+    store,
+    axios
   },
   data () {
     return {
 
     }
+  },
+  methods: {
+    getHot () {
+      axios.get('/api/hot.json').then(this.createHotList)
+    },
+    createHotList (res) {
+      const {code, data} = res.data
+      if (code) {
+        store.commit('toHotList', data.hotList)
+      }
+    }
+  },
+  beforeMount () {
+    this.getHot()
   }
 }
 </script>

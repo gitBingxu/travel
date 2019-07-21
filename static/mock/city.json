@@ -25,6 +25,30 @@
 			"id": 125,
 			"spell": "guilin",
 			"name": "桂林"
+		}, {
+			"id": 8,
+			"spell": "chengdu",
+			"name": "成都"
+		},  {
+			"id": 37,
+			"spell": "shenzhen",
+			"name": "深圳"
+		}, {
+			"id": 39,
+			"spell": "suzhou",
+			"name": "苏州"
+		}, {
+			"id": 46,
+			"spell": "xiamen",
+			"name": "厦门"
+		}, {
+			"id": 13,
+			"spell": "guangzhou",
+			"name": "广州"
+		}, {
+			"id": 18,
+			"spell": "hangzhou",
+			"name": "杭州"
 		}],
 		"cities": {
 			"A": [{

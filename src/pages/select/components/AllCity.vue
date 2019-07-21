@@ -4,7 +4,7 @@
       <a :id="items.alpha"></a>
       <banner :title="items.alpha"></banner>
       <ul class="alpha-item">
-        <li class="city-item border" v-for="(item, index) of items.city" :key="index">{{item.name}}</li>
+        <li @click="changeLocate(item.name)" class="city-item border" v-for="(item, index) of items.city" :key="index">{{item.name}}</li>
       </ul>
     </div>
   </div>
@@ -12,17 +12,25 @@
 
 <script>
 import banner from './Banner'
+import utils from '@/utils/utils'
 import store from '@/store/store'
 
 export default {
   name: 'AllCitl',
   components: {
     banner,
-    store
+    store,
+    utils
   },
   data () {
     return {
       cityList: store.state.cityList
+    }
+  },
+  methods: {
+    changeLocate (locate) {
+      utils.changeLocate(locate)
+      this.$router.push('/')
     }
   }
 }

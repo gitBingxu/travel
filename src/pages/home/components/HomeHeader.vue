@@ -55,6 +55,7 @@ export default {
       }
     }
     .header-mid {
+      position: relative;
       display: flex;
       flex: 1;
       height: .64rem;
@@ -69,9 +70,9 @@ export default {
       }
     }
     .header-right {
-      min-width: 1.24rem;
-      text-align: center;
-      text-align: center;
+      margin: 0 .15rem;
+      min-width: 1.1rem;
+      // text-align: center;
       .arrow-icon {
         font-size: .32rem;
         margin-left: -.05rem;

@@ -19,7 +19,19 @@ export default new Router({
     }, {
       path: '/select',
       name: 'SelectCity',
-      component: SelectCity
+      component: SelectCity,
+      children: [
+        {
+          path: 'cisborder',
+          name: 'CisBorder',
+          component: () => import(/* webpackChunkName: "CisBorder" */ 'src/pages/select/CisBorder.vue')
+        },
+        {
+          path: 'abroad',
+          name: 'Abroad',
+          component: () => import(/* webpackChunkName: "Abroad" */ 'src/pages/select/Abroad.vue')
+        }
+      ]
     }
   ]
 })
