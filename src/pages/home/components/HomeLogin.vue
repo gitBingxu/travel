@@ -2,6 +2,7 @@
   <div class="login-wrap">
     <div class="login">登录</div> |
     <div class="reg">注册</div> |
+    <div class="user">个人中心</div> |
     <div class="about">关于我们</div>
   </div>
 </template>

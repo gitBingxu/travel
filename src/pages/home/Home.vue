@@ -84,11 +84,12 @@ export default {
   },
   mounted () {
     this.getHomeInfo()
-    // let timer = setTimeout(() => {
-    //   this.getCityInfo()
-    // }, 0)
-    // clearTimeout(timer)
-    this.getCityInfo()
+    let timer = setTimeout(() => {
+      if (timer) {
+        this.getCityInfo()
+        clearTimeout(timer)
+      }
+    }, 0)
   }
 }
 </script>

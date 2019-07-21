@@ -10,12 +10,14 @@
 <script>
 import banner from './Banner'
 import store from '@/store/store'
+import utils from '@/utils/utils'
 
 export default {
   name: 'HotCity',
   components: {
     banner,
-    store
+    store,
+    utils
   },
   data () {
     return {
@@ -24,7 +26,8 @@ export default {
   },
   methods: {
     changeLocate (item) {
-      store.commit('changeLocate', item)
+      utils.changeLocate(item)
+      this.$router.push('/')
     }
   }
 }
