@@ -3,6 +3,7 @@
     <select-head></select-head>
     <hot-city></hot-city>
     <alpha-tab></alpha-tab>
+    <all-city></all-city>
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import SelectHead from './components/SelectHead'
 import HotCity from './components/HotCity'
 import AlphaTab from './components/AlphaTab'
+import AllCity from './components/AllCity'
 
 export default {
   name: 'SelectCity',
   components: {
     SelectHead,
     HotCity,
-    AlphaTab
+    AlphaTab,
+    AllCity
   },
   data () {
     return {

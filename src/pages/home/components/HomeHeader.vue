@@ -8,18 +8,23 @@
       <input class="header-input" placeholder="输入城市/景点/游玩主题" @click="handleClick">
     </div>
     <div @click="toSelect" class="header-right">
-      <span>北京</span>
+      <span>{{location}}</span>
       <span class="iconfont arrow-icon">&#xe600;</span>
     </div>
   </div>
 </template>
 
 <script>
+import store from '@/store/store'
+
 export default {
   name: 'HomeHeader',
+  components: {
+    store
+  },
   data () {
     return {
-
+      location: store.state.headLocation
     }
   },
   methods: {

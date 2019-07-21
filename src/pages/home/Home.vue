@@ -27,6 +27,7 @@ import Favorite from './components/HomeFavorite'
 import WeekendGo from './components/WeekendGo'
 import HomeLogin from './components/Homelogin'
 import axios from 'axios'
+import store from '@/store/store'
 
 export default {
   name: 'Home',
@@ -38,7 +39,8 @@ export default {
     HomeRecommand,
     Favorite,
     WeekendGo,
-    HomeLogin
+    HomeLogin,
+    store
   },
   data () {
     return {
@@ -62,10 +64,31 @@ export default {
         this.favList = data.favList
         this.weekendList = data.weekendList
       }
+    },
+    getCityInfo () {
+      axios.get('/api/city.json').then(this.createCityList)
+    },
+    createCityList (res) {
+      const {code, data} = res.data
+      if (code) {
+        const list = data.cities
+        let index = Object.keys(list)
+        index.forEach((item) => {
+          let obj = {}
+          obj.alpha = item
+          obj.city = list[item]
+          store.commit('addToCityList', obj)
+        })
+      }
     }
   },
   mounted () {
     this.getHomeInfo()
+    // let timer = setTimeout(() => {
+    //   this.getCityInfo()
+    // }, 0)
+    // clearTimeout(timer)
+    this.getCityInfo()
   }
 }
 </script>

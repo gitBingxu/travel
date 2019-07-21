@@ -2,22 +2,29 @@
   <div class="hot-wrap">
     <banner title="热门城市"></banner>
     <ul class="city">
-      <li class="item border" v-for="(item, index) of cityList" :key="index">{{item}}</li>
+      <li @click="changeLocate(item)" class="item border" v-for="(item, index) of cityList" :key="index" ref="locate">{{item}}</li>
     </ul>
   </div>
 </template>
 
 <script>
 import banner from './Banner'
+import store from '@/store/store'
 
 export default {
   name: 'HotCity',
   components: {
-    banner
+    banner,
+    store
   },
   data () {
     return {
       cityList: ['北京', '上海', '三亚', '香港', '杭州', '广州', '成都', '深圳', '苏州', '桂林', '西安', '厦门']
+    }
+  },
+  methods: {
+    changeLocate (item) {
+      store.commit('changeLocate', item)
     }
   }
 }
