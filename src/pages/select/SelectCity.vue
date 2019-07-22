@@ -1,9 +1,9 @@
 <template>
   <div class="select-city">
     <select-head></select-head>
-    <hot-city></hot-city>
-    <alpha-tab></alpha-tab>
-    <all-city></all-city>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
@@ -29,20 +29,6 @@ export default {
     return {
 
     }
-  },
-  methods: {
-    getHot () {
-      axios.get('/api/hot.json').then(this.createHotList)
-    },
-    createHotList (res) {
-      const {code, data} = res.data
-      if (code) {
-        store.commit('toHotList', data.hotList)
-      }
-    }
-  },
-  beforeMount () {
-    this.getHot()
   }
 }
 </script>

@@ -49,6 +49,54 @@
 			"id": 18,
 			"spell": "hangzhou",
 			"name": "杭州"
+		}],"hotList": [{
+			"id": 1,
+			"spell": "beijing",
+			"name": "香港"
+		}, {
+			"id": 3,
+			"spell": "shanghai",
+			"name": "澳门"
+		}, {
+			"id": 47,
+			"spell": "xian",
+			"name": "台湾"
+		}, {
+			"id": 239,
+			"spell": "sanya",
+			"name": "巴黎"
+		}, {
+			"id": 188,
+			"spell": "lijiang",
+			"name": "马尔代夫"
+		}, {
+			"id": 125,
+			"spell": "guilin",
+			"name": "咖喱岛"
+		}, {
+			"id": 8,
+			"spell": "chengdu",
+			"name": "纽约"
+		},  {
+			"id": 37,
+			"spell": "shenzhen",
+			"name": "旧金山"
+		}, {
+			"id": 39,
+			"spell": "suzhou",
+			"name": "济州岛"
+		}, {
+			"id": 46,
+			"spell": "xiamen",
+			"name": "东京"
+		}, {
+			"id": 13,
+			"spell": "guangzhou",
+			"name": "札幌"
+		}, {
+			"id": 18,
+			"spell": "hangzhou",
+			"name": "秦朝"
 		}],
 		"cities": {
 			"A": [{

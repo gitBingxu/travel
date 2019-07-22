@@ -28,6 +28,11 @@ export default {
     },
     toTerritory (e) {
       this.menuId = parseInt(e.target.id)
+      if (this.menuId) {
+        this.$router.push('/select/abroad')
+      } else {
+        this.$router.push('/select/cisborder')
+      }
     }
   }
 }

@@ -14,6 +14,12 @@ import utils from '@/utils/utils'
 
 export default {
   name: 'HotCity',
+  props: {
+    abroad: {
+      type: Boolean,
+      required: true
+    }
+  },
   components: {
     banner,
     store,
@@ -21,7 +27,16 @@ export default {
   },
   data () {
     return {
-      cityList: store.state.hotCityList
+
+    }
+  },
+  computed: {
+    cityList () {
+      if (this.abroad) {
+        return store.state.hotList
+      } else {
+        return store.state.hotCityList
+      }
     }
   },
   methods: {

@@ -32,7 +32,7 @@ export default {
       this.$router.push('/search')
     },
     toSelect () {
-      this.$router.push('/select')
+      this.$router.push('/select/cisborder')
     }
   }
 }
