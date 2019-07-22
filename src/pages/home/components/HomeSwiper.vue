@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
   /deep/ .swiper-pagination-bullets {
-    bottom: 6px;
+    margin-top: 94px;
     .swiper-pagination-bullet {
       width: 6px;
       height: 6px;

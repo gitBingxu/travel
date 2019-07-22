@@ -86,7 +86,7 @@ export default {
       }
     }
   },
-  mounted () {
+  created () {
     this.getHomeInfo()
     let timer = setTimeout(() => {
       if (timer) {

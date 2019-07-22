@@ -5,22 +5,26 @@
       <span class="title-hotrec">本周热门榜单</span>
       <span class="title-allrec">全部榜单</span>
     </div>
-    <ul class="cont">
-      <li class="cont-item" v-for="item of recommendList" :key="item.id">
-        <div class="cont-img">
-          <img class="img" :src="item.url" :alt="item.text">
-        </div>
-        <div class="cont-dest">{{item.text}}</div>
-        <div class="cont-price">
-          <span class="price">￥{{item.price}}</span>
-          <span>起</span>
-        </div>
-      </li>
-    </ul>
+    <div ref="wrapper">
+      <ul class="cont" ref="cont">
+        <li class="cont-item" v-for="item of recommendList" :key="item.id">
+          <div class="cont-img">
+            <img class="img" :src="item.url" :alt="item.text">
+          </div>
+          <div class="cont-dest">{{item.text}}</div>
+          <div class="cont-price">
+            <span class="price">￥{{item.price}}</span>
+            <span>起</span>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
+
 export default {
   name: 'HomeRecommand',
   props: {
@@ -36,6 +40,35 @@ export default {
     return {
 
     }
+  },
+  methods: {
+    verScroll () {
+      let width = this.recommendList.length * 110
+      this.$refs.cont.style.width = width + 'px'
+      this.$nextTick(() => {
+        if (!this.scroll) {
+          this.scroll = new BScroll(this.$refs.wrapper, {
+            startX: 0,
+            click: true,
+            scrollX: true,
+            scrollY: false,
+            eventPassthrough: 'vertical'
+          })
+        } else {
+          this.scroll.refresh()
+        }
+      })
+    }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      let timer = setTimeout(() => {
+        if (timer) {
+          this.verScroll()
+          clearTimeout(timer)
+        }
+      }, 0)
+    })
   }
 }
 </script>
@@ -47,6 +80,7 @@ export default {
     margin-top: .2rem;
     background: #fff;
     padding-left: .24rem;
+    width: 100%;
     .title {
       position: relative;
       height: 40px;
@@ -65,13 +99,13 @@ export default {
         position: absolute;
         padding-top: 2px;
         font-size: 13px;
-        right: 15px;
+        right: 20px;
         color: gray;
       }
     }
     .cont {
       list-style: none;
-      overflow-x: scroll;
+      // overflow-x: scroll;
       white-space: nowrap;
       font-size: 12px;
       text-align: center;
@@ -81,7 +115,7 @@ export default {
         display: inline-block;
         padding: .06rem 0 .2rem;
         width: 2rem;
-        margin: 0 .08rem;
+        margin: 0 .1rem;
         .cont-img {
           overflow: hidden;
           width: 2rem;
