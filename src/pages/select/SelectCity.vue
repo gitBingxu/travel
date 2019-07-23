@@ -9,21 +9,11 @@
 
 <script>
 import SelectHead from './components/SelectHead'
-import HotCity from './components/HotCity'
-import AlphaTab from './components/AlphaTab'
-import AllCity from './components/AllCity'
-import store from '@/store/store'
-import axios from 'axios'
 
 export default {
   name: 'SelectCity',
   components: {
-    SelectHead,
-    HotCity,
-    AlphaTab,
-    AllCity,
-    store,
-    axios
+    SelectHead
   },
   data () {
     return {

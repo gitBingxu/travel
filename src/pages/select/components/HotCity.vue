@@ -33,9 +33,9 @@ export default {
   computed: {
     cityList () {
       if (this.abroad) {
-        return store.state.hotList
+        return JSON.parse(sessionStorage.getItem('outHotList'))
       } else {
-        return store.state.hotCityList
+        return JSON.parse(sessionStorage.getItem('inHotList'))
       }
     }
   },

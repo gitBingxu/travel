@@ -1,11 +1,11 @@
 <template>
   <div class="search-wrap">
     <search-header @search="handelSearch" @input='handelInput'></search-header>
-    <div v-show="ifshow">
+    <div v-show="ifshowHot">
       <search-history :historyList="hitoryList" @clear="handelClear" v-show="isShow"></search-history>
       <hot-search></hot-search>
     </div>
-    <search-list></search-list>
+    <search-list :list="searchList" v-show="ifShowSuggest"></search-list>
   </div>
 </template>
 
@@ -26,12 +26,19 @@ export default {
   data () {
     return {
       hitoryList: [],
-      ifshow: true
+      ifshowHot: true,
+      searchList: [],
+      timer: '',
+      input: '',
+      ifShowSuggest: false
     }
   },
   computed: {
     isShow () {
       return this.hitoryList.length
+    },
+    allCity () {
+      return JSON.parse(sessionStorage.getItem('allCities'))
     }
   },
   methods: {
@@ -47,12 +54,35 @@ export default {
     handelClear () {
       this.hitoryList = []
     },
-    // createSearchList (item) {},
     handelInput (string) {
+      this.input = string
       if (string.length) {
-        this.ifshow = false
+        this.ifshowHot = false
+        this.ifShowSuggest = true
       } else {
-        this.ifshow = true
+        this.ifshowHot = true
+        this.ifShowSuggest = false
+      }
+    }
+  },
+  watch: {
+    input () {
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      if (this.input) {
+        this.timer = setTimeout(() => {
+          this.searchList = []
+          for (let i in this.allCity) {
+            this.allCity[i].forEach((item) => {
+              if (item.spell.indexOf(this.input) > -1 || item.name.indexOf(this.input) > -1) {
+                this.searchList.push(item)
+              }
+            })
+          }
+        }, 100)
+      } else {
+        this.searchList = []
       }
     }
   }

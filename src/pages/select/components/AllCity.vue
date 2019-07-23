@@ -16,7 +16,7 @@ import utils from '@/utils/utils'
 import store from '@/store/store'
 
 export default {
-  name: 'AllCitl',
+  name: 'AllCity',
   components: {
     banner,
     store,
@@ -24,7 +24,7 @@ export default {
   },
   data () {
     return {
-      cityList: store.state.cityList
+      cityList: []
     }
   },
   methods: {
@@ -32,6 +32,9 @@ export default {
       utils.changeLocate(locate)
       this.$router.push('/')
     }
+  },
+  created () {
+    this.cityList = JSON.parse(sessionStorage.getItem('allCity'))
   }
 }
 </script>

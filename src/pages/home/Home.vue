@@ -74,17 +74,18 @@ export default {
       const {code, data} = res.data
       if (code) {
         const list = data.cities
-        const HotList = data.hotCities
-        const abroadList = data.hotList
         let index = Object.keys(list)
+        let allCityList = []
         index.forEach((item) => {
           let obj = {}
           obj.alpha = item
           obj.city = list[item]
-          store.commit('addToCityList', obj)
+          allCityList.push(obj)
         })
-        store.commit('addTohotCityList', HotList)
-        store.commit('toHotList', abroadList)
+        sessionStorage.setItem('inHotList', JSON.stringify(data.hotCities))
+        sessionStorage.setItem('outHotList', JSON.stringify(data.hotList))
+        sessionStorage.setItem('allCity', JSON.stringify(allCityList))
+        sessionStorage.setItem('allCities', JSON.stringify(data.cities))
       }
     }
   },

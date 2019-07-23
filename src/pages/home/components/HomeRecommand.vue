@@ -16,7 +16,6 @@
           <span>起</span>
         </div>
       </swiper-slide>
-      <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
   </div>
 </template>
@@ -37,7 +36,10 @@ export default {
     return {
       swiperOption: {
         slidesPerView: 3.5,
-        slidesOffsetAfter: 63
+        slidesOffsetAfter: 63,
+        observeParents: true,
+        observer: true,
+        click: true
       }
     }
   },
