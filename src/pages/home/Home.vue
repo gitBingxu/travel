@@ -6,7 +6,9 @@
     <home-location></home-location>
     <home-recommand :recommendList="recommendList"></home-recommand>
     <favorite :favList="favList"></favorite>
-    <div class="view-all">查看所有产品</div>
+    <div class="view-all">
+      <a href="//touch.piao.qunar.com/touch/list_北京_景点门票.html"> 查看所有产品</a>
+    </div>
     <weekend-go :weekendList="weekendList"></weekend-go>
     <div class="tic-price">
       <img class="price-icon" src="@/assets/image/detail.png" />
@@ -115,6 +117,9 @@ export default {
       font-size: .28rem;
       line-height: .4rem;
       text-align: center;
+      a {
+        text-decoration: none;
+      }
     }
     .tic-price {
       background: #fff;

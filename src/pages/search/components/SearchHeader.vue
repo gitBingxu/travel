@@ -27,7 +27,6 @@ export default {
         this.$emit('search', this.search)
         this.search = ''
       }
-      this.bus.$emit('show')
     },
     back () {
       this.$router.push('/')
@@ -41,9 +40,7 @@ export default {
   },
   watch: {
     search: function () {
-      if (this.search) {
-        this.bus.$emit('hide')
-      }
+      this.$emit('input', this.search)
     }
   }
 }

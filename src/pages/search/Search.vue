@@ -1,10 +1,11 @@
 <template>
   <div class="search-wrap">
-    <search-header @search="handelSearch"></search-header>
+    <search-header @search="handelSearch" @input='handelInput'></search-header>
     <div v-show="ifshow">
-      <search-history :historyList="hitoryList" @clear="handelClear"></search-history>
+      <search-history :historyList="hitoryList" @clear="handelClear" v-show="isShow"></search-history>
       <hot-search></hot-search>
     </div>
+    <search-list></search-list>
   </div>
 </template>
 
@@ -12,18 +13,25 @@
 import SearchHeader from './components/SearchHeader'
 import SearchHistory from './components/SearchHistory'
 import HotSearch from './components/HotSearch'
+import SearchList from './components/SearchList'
 
 export default {
   name: 'Search',
   components: {
     SearchHeader,
     SearchHistory,
-    HotSearch
+    HotSearch,
+    SearchList
   },
   data () {
     return {
       hitoryList: [],
       ifshow: true
+    }
+  },
+  computed: {
+    isShow () {
+      return this.hitoryList.length
     }
   },
   methods: {
@@ -38,21 +46,24 @@ export default {
     },
     handelClear () {
       this.hitoryList = []
+    },
+    // createSearchList (item) {},
+    handelInput (string) {
+      if (string.length) {
+        this.ifshow = false
+      } else {
+        this.ifshow = true
+      }
     }
-  },
-  mounted () {
-    this.bus.$on('hide', () => {
-      this.ifshow = false
-    })
-    this.bus.$on('show', () => {
-      this.ifshow = true
-    })
   }
 }
 </script>
 
 <style lang="scss" scoped>
   .search-wrap {
-    background: #e5e5e5;
+    background: #f0f5f6;
+    width: 100%;
+    height: 100%;
+    position: relative;
   }
 </style>

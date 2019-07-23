@@ -1,5 +1,5 @@
 <template>
-  <div class="his-wrap" v-show="isShow">
+  <div class="his-wrap">
     <sheader :optionsList="historyHeader" @clear="clear"></sheader>
     <ul class="his-item">
       <li class="item" v-for="(item, index) of historyList" :key="index">{{item}}</li>
@@ -29,9 +29,6 @@ export default {
         iconText: '清除'
       }
     }
-  },
-  computed: {
-    isShow: function () { return this.historyList.length }
   },
   methods: {
     clear () {
