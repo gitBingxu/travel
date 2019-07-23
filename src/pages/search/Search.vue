@@ -5,7 +5,7 @@
       <search-history :historyList="hitoryList" @clear="handelClear" v-show="isShow"></search-history>
       <hot-search></hot-search>
     </div>
-    <search-list :list="searchList" v-show="ifShowSuggest"></search-list>
+    <search-list :list="searchList" v-show="ifShowSuggest" @close="close"></search-list>
   </div>
 </template>
 
@@ -63,6 +63,10 @@ export default {
         this.ifshowHot = true
         this.ifShowSuggest = false
       }
+    },
+    close () {
+      this.ifshowHot = true
+      this.ifShowSuggest = false
     }
   },
   watch: {

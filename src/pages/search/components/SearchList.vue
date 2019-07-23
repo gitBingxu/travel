@@ -2,13 +2,14 @@
   <div class="wrap">
     <div class="head">
       <span class="head-left">搜索建议</span>
-      <span class="head-right">关闭</span>
+      <span class="head-right" @click="close">关闭</span>
     </div>
     <ul class="search">
-      <li class="search-item" v-for="item of list" :key="item.id">
+      <li class="search-item border-bottom" v-for="item of list" :key="item.id">
         <img class="item-img" src="https://imgs.qunarzz.com/piao/fusion/1608/cf/7635983375250702.png">
-        <p class="item-cont">搜索{{item.name}}的全部景点</p>
+        <p class="item-cont">搜索<b>{{item.name}}</b>的全部景点</p>
       </li>
+      <li class="search-item border-bottom" v-show="ifShow">没有符合数据！</li>
     </ul>
   </div>
 </template>
@@ -24,6 +25,16 @@ export default {
     return {
 
     }
+  },
+  methods: {
+    close () {
+      this.$emit('close')
+    }
+  },
+  computed: {
+    ifShow () {
+      return !this.list.length
+    }
   }
 }
 </script>
@@ -38,13 +49,30 @@ export default {
     font-size: .24rem;
     line-height: .5rem;
     .head-left {
-      font-size: .3rem;
+      position: absolute;
+      left: 10px;
     }
     .head-right {
       position: absolute;
-      top: 0;
       right: 10px;
-      color: #555;
+    }
+  }
+  .search {
+    padding: 0 .3rem;
+    color: #666;
+    font-size: .28rem;
+    text-align: left;
+    background: #ffffff;
+    .search-item {
+      height: .8rem;
+      line-height: .8rem;
+      border: #666;
+      .item-img {
+        float: left;
+        width: .3rem;
+        height: .3rem;
+        margin: .25rem .1rem .25rem;
+      }
     }
   }
 </style>

@@ -4,7 +4,8 @@
       <span @click="back" class="iconfont back">&#xe624;</span>
     </div>
     <div class="mid">
-      <input class="input" type="text" placeholder="输入城市或景点" v-model="search" ref="input">
+      <input class="input" type="text" placeholder="输入城市或景点" v-model="search" ref="input" >
+      <img class="reset" src="/static/img/reset.png" v-show="ifShow" @click="reset">
     </div>
     <div class="right" @click="handelClick">搜索</div>
   </div>
@@ -30,6 +31,9 @@ export default {
     },
     back () {
       this.$router.push('/')
+    },
+    reset () {
+      this.search = ''
     }
   },
   mounted () {
@@ -41,6 +45,11 @@ export default {
   watch: {
     search: function () {
       this.$emit('input', this.search)
+    }
+  },
+  computed: {
+    ifShow () {
+      return this.search.length
     }
   }
 }
@@ -74,8 +83,10 @@ export default {
       flex: 1;
       height: .6rem;
       margin: .14rem 0;
+      position: relative;
       .input {
         position: relative;
+        float: left;
         display: block;
         width: 100%;
         height: .4rem;
@@ -87,6 +98,13 @@ export default {
         font-size: .28rem;
         border-radius: .06rem;
         text-align: center;
+      }
+      .reset {
+        width: .5rem;
+        height: .44rem;
+        position: absolute;
+        top: .08rem;
+        right: 2px;
       }
     }
     .right {
