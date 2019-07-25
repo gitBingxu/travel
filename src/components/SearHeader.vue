@@ -3,7 +3,7 @@
     <div class="head-text">{{head}}</div>
     <div class="head-icon">
       <img class="icon-img" :src="icon">
-      <span class="icon-text" @click="clear">{{text}}</span>
+      <span class="icon-text" @click="handelClick">{{text}}</span>
     </div>
   </div>
 </template>
@@ -24,7 +24,8 @@ export default {
       iconText: {
         type: String,
         required: false
-      }
+      },
+      signal: String
     }
   },
   components: {
@@ -34,12 +35,13 @@ export default {
     return {
       head: this.optionsList.headText,
       icon: this.optionsList.headIcon,
-      text: this.optionsList.iconText
+      text: this.optionsList.iconText,
+      signal: this.optionsList.signal
     }
   },
   methods: {
-    clear () {
-      this.$emit('clear')
+    handelClick () {
+      this.bus.$emit(this.signal)
     }
   }
 }

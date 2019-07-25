@@ -1,9 +1,13 @@
 <template>
   <div class="hot-wrap">
     <banner title="热门城市"></banner>
-    <ul class="city">
-      <li @click="changeLocate(item.name)" class="item border" v-for="(item, index) of cityList" :key="index" ref="locate">{{item.name}}</li>
-    </ul>
+    <transition
+      appear
+      :appear-active-class="direction">
+      <ul class="city">
+        <li @click="changeLocate(item.name)" class="item border" v-for="(item, index) of cityList" :key="index" ref="locate">{{item.name}}</li>
+      </ul>
+    </transition>
   </div>
 </template>
 
@@ -36,6 +40,13 @@ export default {
         return JSON.parse(sessionStorage.getItem('outHotList'))
       } else {
         return JSON.parse(sessionStorage.getItem('inHotList'))
+      }
+    },
+    direction () {
+      if (this.abroad) {
+        return 'animated fadeInRight'
+      } else {
+        return 'animated fadeInLeft'
       }
     }
   },

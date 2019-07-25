@@ -87,6 +87,14 @@ export default {
         sessionStorage.setItem('allCity', JSON.stringify(allCityList))
         sessionStorage.setItem('allCities', JSON.stringify(data.cities))
       }
+    },
+    getHotSearch () {
+      axios.get('/api/hotSearch.json').then((res) => {
+        const {code, data} = res.data
+        if (code) {
+          sessionStorage.setItem('topHotList', JSON.stringify(data.topHotList))
+        }
+      })
     }
   },
   created () {
@@ -97,6 +105,9 @@ export default {
         clearTimeout(timer)
       }
     }, 0)
+  },
+  mounted () {
+    this.getHotSearch()
   }
 }
 </script>

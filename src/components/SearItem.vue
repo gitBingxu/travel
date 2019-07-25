@@ -3,9 +3,17 @@
     <div class="sear-left">
       <img class="left-img" :src="optionsList.img">
     </div>
-    <ul class="sear-right">
-      <li class="right-item" @click="handelClick(item.cont)" v-for="item of optionsList.sightList" :key="item.id">{{item.cont}}</li>
-    </ul>
+    <transition name="fade">
+      <ul class="sear-right" v-if="ifShow">
+        <li class="right-item"
+          @click="handelClick(item.cont)"
+          v-for="item of optionsList.sightList"
+          :key="item.id"
+          >
+          {{item.cont}}
+        </li>
+      </ul>
+    </transition>
   </div>
 </template>
 
@@ -22,25 +30,44 @@ export default {
         type: Array,
         required: true
       }
-    }
+    },
+    signal: String
   },
   components: {
 
   },
   data () {
     return {
-
+      ifShow: true,
+      timer: ''
     }
   },
   methods: {
     handelClick (item) {
       this.bus.$emit('hotSearch', item)
     }
+  },
+  mounted () {
+    this.bus.$on('changelist', () => {
+      if (this.signal === 'changelist') {
+        this.ifShow = false
+        if (this.timer) { clearTimeout(this.timer) }
+        this.timer = setTimeout(() => {
+          this.ifShow = true
+        }, 500)
+      }
+    })
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
   .sear-wrap {
     overflow: hidden;
     height: 1.8rem;

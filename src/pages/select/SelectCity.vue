@@ -1,9 +1,7 @@
 <template>
   <div class="select-city">
     <select-head></select-head>
-    <keep-alive>
-      <router-view/>
-    </keep-alive>
+    <router-view/>
   </div>
 </template>
 

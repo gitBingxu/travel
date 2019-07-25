@@ -26,7 +26,8 @@ export default {
       historyHeader: {
         headText: '搜索历史',
         headIcon: './static/img/delete.png',
-        iconText: '清除'
+        iconText: '清除',
+        signal: 'clear'
       }
     }
   },

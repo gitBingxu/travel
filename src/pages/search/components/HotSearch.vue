@@ -1,8 +1,8 @@
 <template>
   <div class="hot-wrap">
     <sheader :optionsList="oplist"></sheader>
-    <sear-item :optionsList="topHotList"></sear-item>
-    <sear-item :optionsList="bottomList" class="bottom-search"></sear-item>
+    <sear-item :optionsList="hotlist" signal="changelist"></sear-item>
+    <sear-item :optionsList="bottomList" class="bottom-search" signal="clear"></sear-item>
     <div class="hot-footer">
       <div class="footer-cont">搜索身边的景点</div>
     </div>
@@ -24,29 +24,8 @@ export default {
       oplist: {
         headText: '热门搜索',
         headIcon: './static/img/change.png',
-        iconText: '换一换'
-      },
-      topHotList: {
-        img: 'https://imgs.qunarzz.com/piao/fusion/1511/da/8c3405b0e7d493f7.png',
-        sightList: [{
-          id: 0,
-          cont: '八达岭长城'
-        }, {
-          id: 1,
-          cont: '故宫'
-        }, {
-          id: 2,
-          cont: '慕田峪长城'
-        }, {
-          id: 3,
-          cont: '颐和园'
-        }, {
-          id: 4,
-          cont: '北京欢乐谷'
-        }, {
-          id: 5,
-          cont: '北水古镇'
-        }]
+        iconText: '换一换',
+        signal: 'changelist'
       },
       bottomList: {
         img: 'https://imgs.qunarzz.com/piao/fusion/1511/e8/d46972e07444bbf7.png',
@@ -63,7 +42,26 @@ export default {
           id: 3,
           cont: '怀柔区'
         }]
+      },
+      topHotList: [],
+      index: 0
+    }
+  },
+  created () {
+    this.topHotList = JSON.parse(sessionStorage.getItem('topHotList'))
+  },
+  mounted () {
+    this.bus.$on('changelist', () => {
+      if (this.index < this.topHotList.length - 1) {
+        this.index += 1
+      } else {
+        this.index = 0
       }
+    })
+  },
+  computed: {
+    hotlist () {
+      return this.topHotList[this.index]
     }
   }
 }
