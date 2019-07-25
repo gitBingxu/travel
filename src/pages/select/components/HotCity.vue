@@ -5,7 +5,12 @@
       appear
       :appear-active-class="direction">
       <ul class="city">
-        <li @click="changeLocate(item.name)" class="item border" v-for="(item, index) of cityList" :key="index" ref="locate">{{item.name}}</li>
+        <li @click="changeLocate(item.name)"
+          class="item border"
+          v-for="(item, index) of cityList"
+          :key="index" ref="locate"
+        >
+          {{item.name}}</li>
       </ul>
     </transition>
   </div>
