@@ -1,12 +1,17 @@
 import axios from 'axios'
 import service from './api'
 import { Toast } from 'vant'
-// service 循环遍历输出不同的请求方法
+
+const Token = sessionStorage.getItem('token')
+
 let instance = axios.create({
   baseURL: 'http://localhost:8080/api',
-  timeout: 1000
+  timeout: 1000,
+  headers: {
+    Token
+  }
 })
-const Http = {} // 包裹请求方法的容器
+const Http = {}
 
 for (let key in service) {
   let api = service[key]
@@ -32,7 +37,7 @@ for (let key in service) {
       } catch (err) {
         response = err
       }
-    } else if (api.method === 'delete' || api.method === 'get') {
+    } else {
       config.params = newParams
       try {
         response = await instance[api.method](api.url, config)

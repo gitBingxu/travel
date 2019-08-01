@@ -97,6 +97,7 @@ export default {
     }
   },
   created () {
+    sessionStorage.setItem('token', 'this is a token')
     this.getInfo()
     let timer = setTimeout(() => {
       if (timer) {
