@@ -54,24 +54,19 @@ export default {
     }
   },
   methods: {
-    getHomeInfo () {
-      axios.get('/api/index.json').then(this.getInfoSucc)
-    },
     getInfoSucc (res) {
-      const {code, data} = res.data
-      if (code) {
-        this.swiperList = data.swiperList
-        this.iconList = data.iconList
-        this.recommendList = data.recommendList
-        this.favList = data.favList
-        this.weekendList = data.weekendList
-      }
+      const {data} = res
+      this.swiperList = data.swiperList
+      this.iconList = data.iconList
+      this.recommendList = data.recommendList
+      this.favList = data.favList
+      this.weekendList = data.weekendList
     },
     getCityInfo () {
       axios.get('/api/city.json').then(this.createCityList)
     },
     createCityList (res) {
-      const {code, data} = res.data
+      const {code, data} = res
       if (code) {
         const list = data.cities
         let index = Object.keys(list)
@@ -95,14 +90,18 @@ export default {
           sessionStorage.setItem('topHotList', JSON.stringify(data.topHotList))
         }
       })
+    },
+    async getInfo () {
+      let res = await this.$http.getHomeInfo()
+      this.getInfoSucc(res)
     }
   },
   created () {
-    this.getHomeInfo()
+    this.getInfo()
     let timer = setTimeout(() => {
       if (timer) {
-        this.getCityInfo()
         clearTimeout(timer)
+        this.getCityInfo()
       }
     }, 0)
   },

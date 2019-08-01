@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import http from '@/api/config'
 import 'styles/border.css'
 import 'styles/reset.css'
 import 'styles/iconfont.css'
@@ -14,6 +15,7 @@ Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
 Vue.prototype.bus = new Vue()
+Vue.prototype.$http = http
 
 /* eslint-disable no-new */
 new Vue({
