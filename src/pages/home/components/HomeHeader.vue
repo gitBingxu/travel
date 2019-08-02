@@ -24,7 +24,7 @@ export default {
   },
   data () {
     return {
-      location: store.state.headLocation
+
     }
   },
   methods: {
@@ -33,6 +33,11 @@ export default {
     },
     toSelect () {
       this.$router.push('/select/cisborder')
+    }
+  },
+  computed: {
+    location () {
+      return store.state.headLocation
     }
   }
 }

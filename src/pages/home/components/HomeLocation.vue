@@ -2,7 +2,7 @@
   <div class="location-wrap">
     <div class="location-left">
       <span class="iconfont locate">&#xe60b;</span>
-      <span>定位失败</span>
+      <span class="city">{{city}}</span>
     </div>
     <div class="location-right">
       <span class="iconfont earth">&#xe61a;</span>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import BMap from 'BMap'
 export default {
   name: 'HomeLocation',
   components: {
@@ -21,8 +22,19 @@ export default {
   },
   data () {
     return {
-
+      city: ''
     }
+  },
+  methods: {
+    getCity () {
+      let myCity = new BMap.LocalCity()
+      myCity.get(res => {
+        this.city = res.name
+      })
+    }
+  },
+  mounted () {
+    this.getCity()
   }
 }
 </script>

@@ -33,6 +33,9 @@ export default {
       } else {
         this.$router.push('/select/cisborder')
       }
+    },
+    beforeDestroy () {
+      this.menuId = 0
     }
   }
 }

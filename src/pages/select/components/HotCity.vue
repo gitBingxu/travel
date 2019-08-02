@@ -5,7 +5,7 @@
       appear
       :appear-active-class="direction">
       <ul class="city">
-        <li @click="changeLocate(item.name)"
+        <li @click="changeLocation(item.name)"
           class="item border"
           v-for="(item, index) of cityList"
           :key="index" ref="locate"
@@ -56,7 +56,7 @@ export default {
     }
   },
   methods: {
-    changeLocate (item) {
+    changeLocation (item) {
       utils.changeLocate(item)
       this.$router.push('/')
     }
