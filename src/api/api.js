@@ -10,7 +10,7 @@ const api = {
     url: '/index.json'
   },
   // 获取城市详情页面数据
-  getDetailInfo: {
+  getDetail: {
     method: 'get',
     url: '/detail.json'
   },

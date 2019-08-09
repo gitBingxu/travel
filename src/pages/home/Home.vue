@@ -66,7 +66,6 @@ export default {
       axios.get('/api/city.json').then(this.createCityList)
     },
     createCityList (res) {
-      console.log(1)
       const {code, data} = res.data
       if (code) {
         const list = data.cities
@@ -82,7 +81,6 @@ export default {
         sessionStorage.setItem('outHotList', JSON.stringify(data.hotList))
         sessionStorage.setItem('allCity', JSON.stringify(allCityList))
         sessionStorage.setItem('allCities', JSON.stringify(data.cities))
-        console.log(2)
       }
     },
     getHotSearch () {

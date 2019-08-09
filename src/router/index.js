@@ -5,6 +5,7 @@ import Search from '@/pages/search/Search'
 import SelectCity from '@/pages/select/SelectCity'
 import CisBorder from '@/pages/select/components/CisBorder'
 import Abroad from '@/pages/select/components/Abroad'
+import Detail from '@/pages/detail/Detail'
 
 Vue.use(Router)
 
@@ -37,6 +38,10 @@ export default new Router({
           // component: () => import(/* webpackChunkName: "Abroad" */ 'src/pages/select/Abroad.vue')
         }
       ]
+    }, {
+      path: '/detail',
+      name: 'Detail',
+      component: Detail
     }
   ]
 })

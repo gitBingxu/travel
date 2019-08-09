@@ -5,15 +5,16 @@
       <span class="head-text">猜你喜欢</span>
     </div>
     <ul class="fav-cont">
-      <li class="cont-item" v-for="item of favList" :key="item.id">
+      <router-link to="/detail" tag="li" class="cont-item" v-for="item of favList" :key="item.id">
         <div class="item-left">
           <img class="left-img" :src="item.url" :alt="item.text">
         </div>
         <div class="item-right">
           <div class="title">{{item.text}}</div>
           <div class="comments">
-            <img class="star" src="@/assets/image/star.png">
-            <img class="star" src="@/assets/image/star.png">
+            <ul style="display: flex; float: left;">
+              <li v-for="(n, index) in 5" :key="index"><img class="star" src="@/assets/image/star.png"></li>
+            </ul>
             <span class="comment">{{item.comments}}条评论</span>
           </div>
           <div class="price">
@@ -24,7 +25,7 @@
           </div>
           <span class="tag" v-if="item.tag">{{item.tag}}</span>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 
@@ -113,7 +114,7 @@ export default {
               height: 14px;
             }
             .comment {
-              margin-left: 4px;
+              margin-left: 6px;
               color: #616161;
               font-size: .24rem;
               line-height: .34rem;

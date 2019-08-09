@@ -5,8 +5,8 @@
       <span class="title-hotrec">本周热门榜单</span>
       <span class="title-allrec">全部榜单</span>
     </div>
-    <swiper :options="swiperOption" ref="mySwiper" class="cont">
-      <swiper-slide v-for="item of recommendList" :key="item.id" class="cont-item">
+    <ul class="cont">
+      <li v-for="item of recommendList" :key="item.id" class="cont-item">
         <div class="cont-img">
           <img class="img" :src="item.url" :alt="item.text">
         </div>
@@ -15,8 +15,8 @@
           <span class="price">￥{{item.price}}</span>
           <span>起</span>
         </div>
-      </swiper-slide>
-    </swiper>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -82,6 +82,7 @@ export default {
     .cont {
       list-style: none;
       white-space: nowrap;
+      overflow-x: scroll;
       font-size: 12px;
       text-align: center;
       padding-right: .24rem;
