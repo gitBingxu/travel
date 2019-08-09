@@ -30,6 +30,9 @@ export default {
         autoplayDisableOnInteraction: false
       }
     }
+  },
+  mounted () {
+    console.log(this.swiperList)
   }
 }
 </script>

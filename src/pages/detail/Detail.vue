@@ -1,11 +1,10 @@
 <template>
   <div>
-    <detail-banner :imgUrl="imgList"></detail-banner>
+    <detail-banner :imgUrl="faceImg" :imgList="imgList" :title="title"></detail-banner>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import DetailBanner from './components/banner'
 
 export default {
@@ -15,24 +14,20 @@ export default {
   },
   data () {
     return {
-      imgList: []
+      imgList: [],
+      faceImg: '',
+      title: ''
     }
   },
   methods: {
-    // async getDetailInfo () {
-    //   let res = await this.$http.getDetail()
-    //   const {code, data} = res
-    //   if (code === 1) {
-    //     this.imgList = data.imgList
-    //   }
-    // }
-    getDetailInfo () {
-      axios.get('api/detail.json').then(res => {
-        const {code, data} = res.data
-        if (code) {
-          this.imgList = data.imgList
-        }
-      })
+    async getDetailInfo () {
+      let res = await this.$http.getDetail()
+      const {code, data} = res
+      if (code === 1) {
+        this.imgList = data.imgList
+        this.faceImg = data.faceImg
+        this.title = data.title
+      }
     }
   },
   mounted () {
